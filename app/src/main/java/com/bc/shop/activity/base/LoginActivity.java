@@ -7,17 +7,17 @@ import androidx.appcompat.widget.Toolbar;
 
 public class LoginActivity extends BaseActivity {
 
-    private Toolbar mainToolbar;
+    private Toolbar mMainTb;
 
     @Override
     public void initView() {
         setContentView(R.layout.activity_login);
-        mainToolbar = findViewById(R.id.mainToolbar);
+        mMainTb = findViewById(R.id.tb_main);
     }
 
     @Override
     public void initData() {
-        setToolbar(mainToolbar, "登录");
+        setToolbar(mMainTb, "登录");
     }
 
     @Override

@@ -61,7 +61,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.ic_action_back);
 
         if (!TextUtils.isEmpty(title)) {
-            AppCompatTextView appCompatTextView = findViewById(R.id.titleTextView);
+            AppCompatTextView appCompatTextView = findViewById(R.id.tv_title);
             appCompatTextView.setText(title);
         }
 

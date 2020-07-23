@@ -2,15 +2,15 @@
 
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainLinearLayout"
+    android:id="@+id/ll_main"
     style="@style/Layout.Main">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/mainToolbar"
+        android:id="@+id/tb_main"
         style="@style/Toolbar.Main">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/titleTextView"
+            android:id="@+id/tv_title"
             style="@style/TextView.Title" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -18,11 +18,11 @@
     <View style="@style/View.Line" />
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/mainScrollView"
+        android:id="@+id/sv_main"
         style="@style/Layout.Main">
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/contentLinearLayout"
+            android:id="@+id/ll_content"
             style="@style/Layout.Main">
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -38,7 +38,7 @@
                     tools:ignore="HardcodedText" />
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/usernameEditText"
+                    android:id="@+id/et_account"
                     style="@style/EditText.Username" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -56,7 +56,7 @@
                     tools:ignore="HardcodedText" />
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/passwordEditText"
+                    android:id="@+id/et_password"
                     style="@style/EditText.Password" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -69,7 +69,7 @@
                 android:paddingRight="16dip">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/registerTextView"
+                    android:id="@+id/tv_register"
                     style="@style/TextView.Normal"
                     android:layout_height="24dip"
                     android:text="注册账号"
@@ -77,7 +77,7 @@
                     tools:ignore="HardcodedText" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/findPassTextView"
+                    android:id="@+id/tv_find_password"
                     style="@style/TextView.Normal"
                     android:layout_height="24dip"
                     android:layout_alignParentEnd="true"
@@ -89,18 +89,18 @@
             </RelativeLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/loginTextView"
+                android:id="@+id/tv_login"
                 style="@style/TextView.Button"
                 android:text="登 录"
                 tools:ignore="HardcodedText" />
 
             <RelativeLayout
-                android:id="@+id/thirdRelativeLayout"
+                android:id="@+id/rl_third"
                 style="@style/Layout.Wrap"
                 android:layout_marginTop="96dip">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/thirdTextView"
+                    android:id="@+id/tv_third"
                     style="@style/TextView.Small"
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="24dip"
@@ -108,10 +108,10 @@
                     tools:ignore="HardcodedText" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/wxImageView"
+                    android:id="@+id/iv_wechat"
                     android:layout_width="56dip"
                     android:layout_height="56dip"
-                    android:layout_below="@+id/thirdTextView"
+                    android:layout_below="@+id/tv_third"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="24dip"
                     android:layout_marginRight="24dip"
@@ -120,26 +120,26 @@
                     android:src="@mipmap/ic_classic_wechat" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/qqImageView"
+                    android:id="@+id/iv_qq"
                     android:layout_width="56dip"
                     android:layout_height="56dip"
-                    android:layout_below="@+id/thirdTextView"
-                    android:layout_toStartOf="@+id/wxImageView"
-                    android:layout_toLeftOf="@+id/wxImageView"
+                    android:layout_below="@+id/tv_third"
+                    android:layout_toStartOf="@+id/iv_wechat"
+                    android:layout_toLeftOf="@+id/iv_wechat"
                     android:background="@drawable/border_login_third"
                     android:scaleType="center"
                     android:src="@mipmap/ic_classic_qq" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/wbImageView"
+                    android:id="@+id/iv_weibo"
                     android:layout_width="56dip"
                     android:layout_height="56dip"
-                    android:layout_below="@+id/thirdTextView"
-                    android:layout_toEndOf="@+id/wxImageView"
-                    android:layout_toRightOf="@+id/wxImageView"
+                    android:layout_below="@+id/tv_third"
+                    android:layout_toEndOf="@+id/iv_wechat"
+                    android:layout_toRightOf="@+id/iv_wechat"
                     android:background="@drawable/border_login_third"
                     android:scaleType="center"
-                    android:src="@mipmap/ic_classic_sinaweibo" />
+                    android:src="@mipmap/ic_classic_weibo" />
 
             </RelativeLayout>
 
