@@ -13,6 +13,13 @@ import java.util.Map;
 public interface CategoryService {
 
     /**
+     * 新增商品类别
+     *
+     * @param category 商品类别
+     */
+    void addCategory(Category category);
+
+    /**
      * 获取商品类别列表
      *
      * @param paramMap 参数map

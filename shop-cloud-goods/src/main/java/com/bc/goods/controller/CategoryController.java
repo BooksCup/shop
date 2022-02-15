@@ -2,6 +2,7 @@ package com.bc.goods.controller;
 
 import com.bc.goods.cons.Constant;
 import com.bc.goods.entity.Category;
+import com.bc.goods.enums.ResponseMsg;
 import com.bc.goods.service.CategoryService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,25 @@ public class CategoryController {
 
     @Autowired
     CategoryService categoryService;
+
+    @ApiOperation(value = "新增商品类别列表", notes = "新增商品类别列表")
+    @PostMapping(value = "")
+    public ResponseEntity<String> addCategory(
+            @RequestParam String storeId,
+            @RequestParam String name,
+            @RequestParam String parentId,
+            @RequestParam(required = false, defaultValue = "0") String imageId) {
+        ResponseEntity<String> responseEntity;
+        try {
+            Category category = new Category(storeId, name, parentId, imageId);
+            categoryService.addCategory(category);
+            responseEntity = new ResponseEntity<>(ResponseMsg.ADD_SUCCESS.getCode(), HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            responseEntity = new ResponseEntity<>(ResponseMsg.ADD_ERROR.getCode(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return responseEntity;
+    }
 
     @ApiOperation(value = "获取店铺下商品类别列表", notes = "获取店铺下商品类别列表")
     @GetMapping(value = "")

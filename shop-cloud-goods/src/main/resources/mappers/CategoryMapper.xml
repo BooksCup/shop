@@ -7,10 +7,43 @@
         <result column="name" jdbcType="VARCHAR" property="name"/>
     </resultMap>
 
+    <insert id="addCategory" parameterType="com.bc.goods.entity.Category">
+        INSERT INTO shop_category
+        (
+        id,
+        name,
+        parent_id,
+        image_id,
+        sort,
+        store_id,
+        create_time,
+        update_time
+        )
+        values
+        (
+        #{id},
+        #{name},
+        #{parentId},
+        #{imageId},
+        #{sort},
+        #{storeId},
+        now(),
+        now()
+        )
+    </insert>
+
+    <select id="getCategoryListByStoreIdAndParentId" resultMap="category">
+        SELECT *
+        FROM shop_category
+        WHERE store_id = #{storeId}
+        AND parent_id = #{parentId}
+    </select>
+
     <select id="getCategoryList" resultMap="category">
         SELECT *
         FROM shop_category
         WHERE store_id = #{storeId}
+        ORDER BY sort ASC
     </select>
 
 </mapper>
