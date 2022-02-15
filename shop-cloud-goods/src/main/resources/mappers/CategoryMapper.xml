@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bc.goods.mapper.CategoryMapper">
+
+    <resultMap id="category" type="com.bc.goods.entity.Category">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+    </resultMap>
+
+    <select id="getCategoryList" resultMap="category">
+        SELECT *
+        FROM shop_category
+        WHERE store_id = #{storeId}
+    </select>
+
+</mapper>

@@ -1,0 +1,20 @@
+spring:
+  # 服务逻辑名称
+  application:
+    name: shop-cloud-goods
+
+  cloud:
+    nacos:
+      # 配置中心
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        refresh: true
+        group: shop
+        shared-dataids: shop-cloud-goods.yml
+        namespace: 5d4cb45a-5105-44ea-9551-e8529869942c
+
+      # 注册中心
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 5d4cb45a-5105-44ea-9551-e8529869942c
