@@ -19,6 +19,8 @@
 
     <modules>
         <module>shop-cloud-goods</module>
+        <module>shop-cloud-file</module>
+        <module>shop-cloud-common</module>
     </modules>
 
     <properties>
@@ -97,6 +99,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 
 </project>
