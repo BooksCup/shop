@@ -55,6 +55,7 @@ public class CategoryController {
         try {
             Map<String, Object> paramMap = new HashMap<>(Constant.DEFAULT_HASH_MAP_CAPACITY);
             paramMap.put("storeId", storeId);
+            paramMap.put("parentId", "0");
             List<Category> categoryList = categoryService.getCategoryList(paramMap);
             responseEntity = new ResponseEntity<>(categoryList, HttpStatus.OK);
         } catch (Exception e) {

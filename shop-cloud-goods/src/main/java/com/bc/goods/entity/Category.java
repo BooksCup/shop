@@ -2,6 +2,8 @@ package com.bc.goods.entity;
 
 import com.bc.goods.utils.CommonUtil;
 
+import java.util.List;
+
 /**
  * 商品类别
  *
@@ -14,7 +16,9 @@ public class Category {
     private String name;
     private String parentId;
     private String imageId;
+    private String imageUrl;
     private Integer sort;
+    private List<Category> children;
 
     public Category() {
 
@@ -69,12 +73,28 @@ public class Category {
         this.imageId = imageId;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public Integer getSort() {
         return sort;
     }
 
     public void setSort(Integer sort) {
         this.sort = sort;
+    }
+
+    public List<Category> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Category> children) {
+        this.children = children;
     }
 
 }

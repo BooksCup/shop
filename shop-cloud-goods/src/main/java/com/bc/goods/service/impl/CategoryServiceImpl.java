@@ -52,7 +52,13 @@ public class CategoryServiceImpl implements CategoryService {
      */
     @Override
     public List<Category> getCategoryList(Map<String, Object> paramMap) {
-        return categoryMapper.getCategoryList(paramMap);
+        List<Category> categoryList = categoryMapper.getCategoryListByStoreIdAndParentId(paramMap);
+        for (Category category : categoryList) {
+            paramMap.put("parentId", category.getId());
+            List<Category> children = categoryMapper.getCategoryListByStoreIdAndParentId(paramMap);
+            category.setChildren(children);
+        }
+        return categoryList;
     }
 
 }

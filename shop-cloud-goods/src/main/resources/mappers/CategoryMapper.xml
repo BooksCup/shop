@@ -3,8 +3,9 @@
 <mapper namespace="com.bc.goods.mapper.CategoryMapper">
 
     <resultMap id="category" type="com.bc.goods.entity.Category">
-        <id column="id" jdbcType="VARCHAR" property="id"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="image_url" property="imageUrl" jdbcType="VARCHAR"/>
     </resultMap>
 
     <insert id="addCategory" parameterType="com.bc.goods.entity.Category">
@@ -33,10 +34,13 @@
     </insert>
 
     <select id="getCategoryListByStoreIdAndParentId" resultMap="category">
-        SELECT *
-        FROM shop_category
-        WHERE store_id = #{storeId}
-        AND parent_id = #{parentId}
+        SELECT c.*,
+        f.file_path AS image_url
+        FROM shop_category c
+        LEFT JOIN shop_upload_file f ON c.image_id = f.file_id
+        WHERE c.store_id = #{storeId}
+        AND c.parent_id = #{parentId}
+        ORDER BY c.sort ASC
     </select>
 
     <select id="getCategoryList" resultMap="category">
