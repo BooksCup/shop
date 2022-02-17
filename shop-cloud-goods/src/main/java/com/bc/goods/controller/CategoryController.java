@@ -1,8 +1,8 @@
 package com.bc.goods.controller;
 
-import com.bc.goods.cons.Constant;
+import com.bc.common.cons.Constant;
+import com.bc.common.enums.ResponseMsg;
 import com.bc.goods.entity.Category;
-import com.bc.goods.enums.ResponseMsg;
 import com.bc.goods.service.CategoryService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;

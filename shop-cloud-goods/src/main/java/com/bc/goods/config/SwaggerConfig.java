@@ -31,10 +31,11 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("商品类别")
-                .description("商品类别")
+                .title("商品")
+                .description("商品")
                 .version("1.0.0")
                 .contact(new Contact("BooksCup", "", "BooksCup@163.com"))
                 .build();
     }
+
 }

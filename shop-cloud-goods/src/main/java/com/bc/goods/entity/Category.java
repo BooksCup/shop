@@ -1,6 +1,6 @@
 package com.bc.goods.entity;
 
-import com.bc.goods.utils.CommonUtil;
+import com.bc.common.utils.CommonUtil;
 
 import java.util.List;
 

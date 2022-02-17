@@ -1,6 +1,6 @@
 package com.bc.goods.service.impl;
 
-import com.bc.goods.cons.Constant;
+import com.bc.common.cons.Constant;
 import com.bc.goods.entity.Category;
 import com.bc.goods.mapper.CategoryMapper;
 import com.bc.goods.service.CategoryService;
