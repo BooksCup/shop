@@ -12,10 +12,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 @SpringBootApplication
 @MapperScan("com.bc.goods.mapper")
-public class Application {
+public class GoodsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(GoodsApplication.class, args);
     }
 
 }
