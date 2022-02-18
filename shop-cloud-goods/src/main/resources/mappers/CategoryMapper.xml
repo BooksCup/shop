@@ -50,4 +50,15 @@
         ORDER BY sort ASC
     </select>
 
+    <update id="updateCategory" parameterType="com.bc.goods.entity.Category">
+        UPDATE shop_category
+        SET name = #{name},
+        parent_id = #{parentId},
+        image_id = #{imageId},
+        status = #{status},
+        sort = #{sort},
+        update_time = now()
+        where id = #{id}
+    </update>
+
 </mapper>

@@ -29,16 +29,18 @@ public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
-    @ApiOperation(value = "新增商品类别列表", notes = "新增商品类别列表")
+    @ApiOperation(value = "新增商品类别", notes = "新增商品类别")
     @PostMapping(value = "")
     public ResponseEntity<String> addCategory(
             @RequestParam String storeId,
             @RequestParam String name,
             @RequestParam String parentId,
-            @RequestParam(required = false, defaultValue = "0") String imageId) {
+            @RequestParam(required = false, defaultValue = "0") String imageId,
+            @RequestParam String status,
+            @RequestParam Integer sort) {
         ResponseEntity<String> responseEntity;
         try {
-            Category category = new Category(storeId, name, parentId, imageId);
+            Category category = new Category(storeId, name, parentId, imageId, status, sort);
             categoryService.addCategory(category);
             responseEntity = new ResponseEntity<>(ResponseMsg.ADD_SUCCESS.getCode(), HttpStatus.OK);
         } catch (Exception e) {
@@ -60,6 +62,28 @@ public class CategoryController {
             responseEntity = new ResponseEntity<>(categoryList, HttpStatus.OK);
         } catch (Exception e) {
             responseEntity = new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return responseEntity;
+    }
+
+    @ApiOperation(value = "修改商品类别", notes = "修改商品类别")
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<String> updateCategory(
+            @PathVariable String id,
+            @RequestParam String name,
+            @RequestParam String parentId,
+            @RequestParam(required = false, defaultValue = "0") String imageId,
+            @RequestParam String status,
+            @RequestParam Integer sort) {
+        ResponseEntity<String> responseEntity;
+        try {
+            Category category = new Category("", name, parentId, imageId, status, sort);
+            category.setId(id);
+            categoryService.updateCategory(category);
+            responseEntity = new ResponseEntity<>(ResponseMsg.UPDATE_SUCCESS.getCode(), HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            responseEntity = new ResponseEntity<>(ResponseMsg.UPDATE_ERROR.getCode(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }

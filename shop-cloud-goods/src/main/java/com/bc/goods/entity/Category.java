@@ -17,6 +17,7 @@ public class Category {
     private String parentId;
     private String imageId;
     private String imageUrl;
+    private String status;
     private Integer sort;
     private List<Category> children;
 
@@ -25,12 +26,14 @@ public class Category {
     }
 
     public Category(String storeId, String name, String parentId,
-                    String imageId) {
+                    String imageId, String status, Integer sort) {
         this.id = CommonUtil.generateId();
         this.storeId = storeId;
         this.name = name;
         this.parentId = parentId;
         this.imageId = imageId;
+        this.status = status;
+        this.sort = sort;
     }
 
     public String getId() {
@@ -79,6 +82,14 @@ public class Category {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Integer getSort() {

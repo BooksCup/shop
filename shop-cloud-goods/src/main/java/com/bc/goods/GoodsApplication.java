@@ -7,6 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * 商品
+ *
  * @author zhou
  */
 @EnableFeignClients
