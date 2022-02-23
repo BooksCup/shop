@@ -19,6 +19,7 @@ public class Category {
     private String imageUrl;
     private String status;
     private Integer sort;
+    private String createTime;
     private List<Category> children;
 
     public Category() {
@@ -98,6 +99,14 @@ public class Category {
 
     public void setSort(Integer sort) {
         this.sort = sort;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
     public List<Category> getChildren() {
