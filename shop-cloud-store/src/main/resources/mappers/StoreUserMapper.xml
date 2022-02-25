@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bc.store.mapper.StoreUserMapper">
+
+    <insert id="addStoreUser" parameterType="com.bc.store.entity.StoreUser">
+        INSERT INTO shop_store_user
+        (
+        id,
+        store_id,
+        user_name,
+        real_name,
+        password,
+        sort,
+        create_time,
+        update_time
+        )
+        VALUES
+        (
+        #{id},
+        #{storeId},
+        #{userName},
+        #{realName},
+        #{password},
+        #{sort},
+        now(),
+        now()
+        )
+    </insert>
+
+</mapper>
