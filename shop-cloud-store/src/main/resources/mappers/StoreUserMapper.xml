@@ -2,6 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bc.store.mapper.StoreUserMapper">
 
+    <resultMap id="storeUser" type="com.bc.store.entity.StoreUser">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="real_name" property="realName" jdbcType="VARCHAR"/>
+        <result column="is_super" property="isSuper" jdbcType="VARCHAR"/>
+        <result column="sort" property="sort" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="VARCHAR"/>
+    </resultMap>
+
     <insert id="addStoreUser" parameterType="com.bc.store.entity.StoreUser">
         INSERT INTO shop_store_user
         (
@@ -26,5 +35,18 @@
         now()
         )
     </insert>
+
+    <select id="getStoreUserList" resultMap="storeUser">
+        SELECT *
+        FROM shop_store_user
+        WHERE store_id = #{storeId}
+        ORDER BY sort ASC
+    </select>
+
+    <delete id="deleteStoreUser" parameterType="String">
+        DELETE
+        FROM shop_store_user
+        WHERE id = #{id}
+    </delete>
 
 </mapper>

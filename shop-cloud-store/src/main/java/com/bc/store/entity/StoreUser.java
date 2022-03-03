@@ -14,7 +14,9 @@ public class StoreUser {
     private String userName;
     private String realName;
     private String password;
+    private Integer isSuper;
     private Integer sort;
+    private String createTime;
 
     public StoreUser() {
 
@@ -69,12 +71,28 @@ public class StoreUser {
         this.password = password;
     }
 
+    public Integer getIsSuper() {
+        return isSuper;
+    }
+
+    public void setIsSuper(Integer isSuper) {
+        this.isSuper = isSuper;
+    }
+
     public Integer getSort() {
         return sort;
     }
 
     public void setSort(Integer sort) {
         this.sort = sort;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
 }
