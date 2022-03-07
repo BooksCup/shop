@@ -31,6 +31,16 @@ public class StoreUserServiceImpl implements StoreUserService {
     }
 
     /**
+     * 修改企业用户
+     *
+     * @param storeUser 企业用户
+     */
+    @Override
+    public void updateStoreUser(StoreUser storeUser) {
+        storeUserMapper.updateStoreUser(storeUser);
+    }
+
+    /**
      * 获取企业用户列表
      *
      * @param paramMap 参数map

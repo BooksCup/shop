@@ -31,6 +31,13 @@ public class StoreUser {
         this.sort = sort;
     }
 
+    public StoreUser(String userName, String realName, String password, Integer sort) {
+        this.userName = userName;
+        this.realName = realName;
+        this.password = password;
+        this.sort = sort;
+    }
+
     public String getId() {
         return id;
     }

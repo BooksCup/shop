@@ -20,6 +20,13 @@ public interface StoreUserMapper {
     void addStoreUser(StoreUser storeUser);
 
     /**
+     * 修改企业用户
+     *
+     * @param storeUser 企业用户
+     */
+    void updateStoreUser(StoreUser storeUser);
+
+    /**
      * 获取企业用户列表
      *
      * @param paramMap 参数map

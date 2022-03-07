@@ -32,20 +32,41 @@ public class StoreUserController {
 
     @ApiOperation(value = "新增企业管理员", notes = "新增企业管理员")
     @PostMapping(value = "")
-    public ResponseEntity<String> addStoreUser(
+    public ResponseEntity<StoreUser> addStoreUser(
             @RequestParam String storeId,
             @RequestParam String userName,
             @RequestParam String realName,
             @RequestParam String password,
             @RequestParam Integer sort) {
-        ResponseEntity<String> responseEntity;
+        ResponseEntity<StoreUser> responseEntity;
         try {
             StoreUser storeUser = new StoreUser(storeId, userName, realName, password, sort);
             storeUserService.addStoreUser(storeUser);
-            responseEntity = new ResponseEntity<>(ResponseMsg.ADD_SUCCESS.getCode(), HttpStatus.OK);
+            responseEntity = new ResponseEntity<>(storeUser, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
-            responseEntity = new ResponseEntity<>(ResponseMsg.ADD_ERROR.getCode(), HttpStatus.INTERNAL_SERVER_ERROR);
+            responseEntity = new ResponseEntity<>(new StoreUser(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return responseEntity;
+    }
+
+    @ApiOperation(value = "修改企业管理员", notes = "修改企业管理员")
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<StoreUser> updateStoreUser(
+            @PathVariable String id,
+            @RequestParam String userName,
+            @RequestParam String realName,
+            @RequestParam String password,
+            @RequestParam Integer sort) {
+        ResponseEntity<StoreUser> responseEntity;
+        try {
+            StoreUser storeUser = new StoreUser(userName, realName, password, sort);
+            storeUser.setId(id);
+            storeUserService.updateStoreUser(storeUser);
+            responseEntity = new ResponseEntity<>(storeUser, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            responseEntity = new ResponseEntity<>(new StoreUser(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }

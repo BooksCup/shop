@@ -36,6 +36,16 @@
         )
     </insert>
 
+    <update id="updateStoreUser" parameterType="com.bc.store.entity.StoreUser">
+        UPDATE shop_store_user
+        SET user_name = #{userName},
+        real_name = #{realName},
+        password = #{password},
+        sort = #{sort},
+        update_time = now()
+        where id = #{id}
+    </update>
+
     <select id="getStoreUserList" resultMap="storeUser">
         SELECT *
         FROM shop_store_user
